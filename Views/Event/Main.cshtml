@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Event Page";
+}
+<h1 id="header">Dojo Activity Center</h1>
+<p id="welcome">Welcome @ViewBag.CurrUserAlias.</p>
+<p id="logout"><a asp-action="logout" asp-controller="Login">Log Out</a></p>
+<div id=errormessages>
+    @if (ViewBag.message != null)
+    {
+        <p>@ViewBag.message</p>
+    }
+</div>
+<div id="events"> 
+    <table> 
+        <tr>
+            <th>Activity</th>
+            <th>Date and Time</th>
+            <th>Duration</th>
+            <th>Event Coordinator</th>
+            <th>Number of Participants</th>
+            <th>Actions</th>
+        </tr>
+        @if(ViewBag.AllEvents.Count != 0)  
+        {  
+            @foreach(var eventdetail in ViewBag.AllEvents)
+            {
+                <tr>
+                    <td><a asp-controller="Event" asp-action="ViewEvent" asp-route-EventId="@eventdetail.EventId">@eventdetail.Title</a></td>
+                    <td>@eventdetail.EventDate.ToString("dd MMM yyyy") @@  @eventdetail.EventTime.ToString("hh:mm tt")</td>
+                    <td>@eventdetail.Duration @eventdetail.DurationType</td>
+                    <td>@eventdetail.CreatedByFirstName</td>
+                    <td>Placeholder</td>
+                    <td>Placeholder</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+<div id="neweventbutton">
+    <button><a asp-action="NewEvent" asp-controller="Event">Create a New Event</a></button>
+</div>

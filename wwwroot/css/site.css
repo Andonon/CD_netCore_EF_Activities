@@ -1,0 +1,65 @@
+/*Write all of your CSS here*/
+#header {
+    display: inline-block;
+    width: 400px;
+}
+#welcome { 
+    display: inline-block;
+    width: 200px;
+}
+#home { 
+    display: inline-block;
+    width: 200px;
+}
+#logout {
+    display: inline-block;
+    width: 200px;
+}
+#loginarea {
+    width: 100%;
+}
+#register {
+    display: inline-block;
+    width: 45%;
+    margin: auto;
+    vertical-align: top;
+}
+#registerlables {
+    display: inline-block;
+    vertical-align: top;
+    
+}
+#registerfields {
+    display: inline-block;
+}
+#login {
+    display: inline-block;
+    width: 45%;
+    margin: auto;
+}
+#loginlabels { 
+    display: inline-block;
+    vertical-align: top;
+    
+}
+#loginfields {
+    display: inline-block;
+}
+#errormessages, #asp_register_validations {
+    font-size: .9em;
+    color: red;
+    font-weight: bold;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    width: 100px;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+#neweventbutton {
+    position: relative;
+    top: 50px; 
+    left: 600px; 
+}

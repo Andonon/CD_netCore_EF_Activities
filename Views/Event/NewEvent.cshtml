@@ -1,0 +1,29 @@
+@model Activities.Models.NewEventViewModel
+@{
+    ViewData["Title"] = "New Event Page";
+}
+<h1 id="header">Dojo Activity Center</h1>
+<p id="home"><a asp-action="main" asp-controller="Event">Home</a></p>
+<p id="logout"><a asp-action="logout" asp-controller="Login">Log Out</a></p>
+<div id="events"> 
+    <h3>Create an Activity!</h3>
+    <div id="asp_register_validations" asp-validation-summary="All"></div>
+    <form asp-controller="Event" asp-action="CreateEvent" method="post">
+        <label for="Title">Title:</label>
+        <input type="text" name="Title">
+        <label for="Time">Time:</label>
+        <input type="time" name="EventTime">
+        <label for="Date">Date:</label>
+        <input type="date" name="EventDate">
+        <label for="Duration">Duration:</label>
+        <input type="number" name="Duration">
+        <select name="DurationType">
+            <option value="Days">Days</option>
+            <option value="Hours">Hours</option>
+            <option value="Minutes">Minutes</option>
+        </select>
+        <label for="Description">Description:</label>
+        <textarea name="Description"></textarea>   
+        <input type="submit" value="Create Activity">
+    </form>
+</div>

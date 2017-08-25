@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "View Event Page";
+}
+<h1 id="header">Dojo Activity Center</h1>
+<p id="home"><a asp-action="main" asp-controller="Event">Home</a></p>
+<p id="logout"><a asp-action="logout" asp-controller="Login">Log Out</a></p>
+<hr>
+<br><br><br>
+<h3>Event Name: @ViewBag.CurrentEvent.Title</h3>
+<br>
+<h4>Event Coordinator: @ViewBag.CurrentEvent.CreatedByFirstName</h4>
+<br>
+<h4>Description</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@ViewBag.CurrentEvent.Description</p>
+<br>
+<h4>Participants</h4>
+<h5>Troy</h5>
+<h5>Alan</h5>
