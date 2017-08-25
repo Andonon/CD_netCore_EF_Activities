@@ -53,7 +53,8 @@
 
 th, td {
     border-bottom: 1px solid #ddd;
-    width: 100px;
+    width: 200px;
+    line-height: 30px;
 }
 tr:nth-child(even) {
     background-color: #f2f2f2

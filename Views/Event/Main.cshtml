@@ -29,8 +29,13 @@
                     <td>@eventdetail.EventDate.ToString("dd MMM yyyy") @@  @eventdetail.EventTime.ToString("hh:mm tt")</td>
                     <td>@eventdetail.Duration @eventdetail.DurationType</td>
                     <td>@eventdetail.CreatedByFirstName</td>
-                    <td>Placeholder</td>
-                    <td>Placeholder</td>
+                    <td>1</td>
+                    @if(eventdetail.CreatedById == ViewBag.CurrUserId)
+                    {
+                        <td><a asp-controller="Event" asp-action="DeleteEvent" asp-route-EventId="@eventdetail.EventId">Delete</a></td>
+                    } else {                       
+                        <td><a>Join</a></td>
+                    }
                 </tr>
             }
         }

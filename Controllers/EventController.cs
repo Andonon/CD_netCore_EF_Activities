@@ -40,6 +40,7 @@ namespace Activities.Controllers
             }
             else
             {
+                ViewBag.CurrUserId = UserId;
                 string CurrUserAlias = HttpContext.Session.GetString("UserAlias");
                 ViewBag.CurrUserAlias = CurrUserAlias;
 
@@ -110,19 +111,28 @@ namespace Activities.Controllers
             {
                 return RedirectToAction("Index", "Login");            
             } else {
-
                 Event GetEvent = _context.Events.SingleOrDefault(Event => Event.EventId.ToString() == EventId);
-
-
-
-
-
                 ViewBag.CurrentEvent = GetEvent;
                 return View("ViewEvent");
             }
             
         }
 
+        //==================================================================================
+        // Detele Event Route.
+        //==================================================================================
+        [HttpGet]
+        [Route("DeleteEvent/{EventId}")]
+        public IActionResult DeleteEvent(string EventId)
+        {
+            Event GetEvent = _context.Events.SingleOrDefault(Event => Event.EventId.ToString() == EventId);
+            _context.Events.Remove(GetEvent);
+            _context.SaveChanges();
+            List<Event> AllEvents = _context.Events
+                .ToList();
+            ViewBag.AllEvents = AllEvents;
+            return RedirectToAction("Main", "Event");
+        }
 
     }
 }
